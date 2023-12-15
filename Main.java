@@ -11,7 +11,7 @@ public class Main {
         int columns = sc.nextInt();
         String[][] mapTransit = new String[lines][columns];
         for (String[] mapTransitLines : mapTransit) {
-            Arrays.fill(mapTransitLines, " ");
+            Arrays.fill(mapTransitLines, "-");
         }
         for (int i = 0; i < 2; i++) {
             System.out.println("Escreva em que linha em que o " + (i + 1) + "º carro vai estar");
@@ -20,6 +20,12 @@ public class Main {
             int columnCar = sc.nextInt();
             mapTransit[lineCar][columnCar] = "C";
         }
+        String mapTransitString = transformMatrixInString(mapTransit);
+        System.out.println(mapTransitString);
+        System.out.println(calcDistance(mapTransit));
+    }
+
+    private static String transformMatrixInString(String[][] mapTransit) {
         String mapTransitString = "";
         for (int i = 0; i < mapTransit.length; i++) {
             mapTransitString += " ";
@@ -42,6 +48,10 @@ public class Main {
                 mapTransitString += "+\n";
             }
         }
-        System.out.println(mapTransitString);
+        return mapTransitString;
+    }
+
+    private static String calcDistance(String[][] mapTransit, int[] start, int[] finish) {
+
     }
 }
